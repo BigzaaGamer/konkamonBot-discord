@@ -1,11 +1,12 @@
 import os
 import discord
 
+from boto.s3.connection import S3Connection
 from utils import default
 from utils.data import Bot, HelpFormat
 from discord_slash import SlashCommand, SlashContext
 
-TOKEN = os.getenv("DISCORD_TOKEN")
+TOKEN = S3Connection(os.environ['DISCORD_TOKEN'])
 
 #help_command=HelpFormat(),
 config = default.config()
@@ -26,8 +27,7 @@ for file in os.listdir("cogs"):
 
 try:
     #bot.run(config["token"])
-    if __name__ == "__main__":
-        bot.run(TOKEN)
-        
+    bot.run(TOKEN)    
+
 except Exception as e:
     print(f"Error when logging in: {e}")
