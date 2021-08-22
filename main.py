@@ -6,8 +6,9 @@ from utils import default
 from utils.data import Bot, HelpFormat
 from discord_slash import SlashCommand, SlashContext
 
-#TOKEN = S3Connection(os.environ['DISCORD_TOKEN'])
+# For HEROKU deployment
 TOKEN = os.getenv("DISCORD_TOKEN")
+
 #help_command=HelpFormat(),
 config = default.config()
 print("Logging in...")
@@ -26,7 +27,9 @@ for file in os.listdir("cogs"):
         bot.load_extension(f"cogs.{name}")
 
 try:
+    #for Local
     #bot.run(config["token"])
+    
     bot.run(TOKEN)    
 
 except Exception as e:

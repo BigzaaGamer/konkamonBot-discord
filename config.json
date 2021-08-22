@@ -6,7 +6,7 @@
   "prefix": [
     "&"
   ],
-  "activity": "&help - กำลังเขียน",
+  "activity": "&help",
   "activity_type": "playing",
   "status_type": "online",
   "alexflipnote_api": "nice_token_you_got_here",
