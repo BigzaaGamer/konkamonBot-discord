@@ -65,10 +65,13 @@ class Information(commands.Cog):
             value=", ".join([str(self.bot.get_user(x)) for x in self.config["owners"]]),
             inline=True
         )
-        embed.add_field(name="Library", value="discord.py", inline=True)
-        embed.add_field(name="Servers", value=f"{len(ctx.bot.guilds)} ( avg: {avgmembers:,.2f} users/server )", inline=True)
+        embed.add_field(name="Library", value="[discord.py](https://discordpy.readthedocs.io/en/stable/)\n(อื่นๆอีก 62)", inline=True)
+        #embed.add_field(name="Servers", value=f"{len(ctx.bot.guilds)} ( avg: {avgmembers:,.2f} users/server )", inline=True)
+        embed.add_field(name="ภาษาที่ใช้", value="Python", inline=True)
         embed.add_field(name="จำนวนคำสั่ง", value=len([x.name for x in self.bot.commands]), inline=True)
-        embed.add_field(name="RAM", value=f"{ramUsage:.2f} MB", inline=True)
+        #embed.add_field(name="RAM", value=f"{ramUsage:.2f} MB", inline=True)
+        embed.add_field(name="GitHub", value="[konkamonBot](https://github.com/BigzaaGamer/konkamonBot-discord)\n[Source](https://github.com/AlexFlipnote/discord_bot.py)")
+        embed.add_field(name="ข้อความจากผู้พัฒนา", value="**22/08/2021**: ทีแรกกะว่าจะใช้เว็บ Autobot แต่ขอลองเขียนเองก่อน สนุกดี555", inline=False)
 
         await ctx.send(content=f"ℹ เกี่ยวกับ **{ctx.bot.user}** | เวอร์ชั่น **{self.config['version']}**", embed=embed)
 

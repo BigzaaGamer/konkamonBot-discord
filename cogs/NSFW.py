@@ -91,7 +91,7 @@ class NSFW(commands.Cog):
     @commands.command()
     async def collegesluts(self, ctx):
         if ctx.channel.is_nsfw():
-            await self.randomNSFW(ctx, "https://meme-api.herokuapp.com/gimme/collegeslut", "url","title","postLink")
+            await self.randomNSFW(ctx, "https://meme-api.herokuapp.com/gimme/collegesluts", "url","title","postLink")
         else:
             await ctx.reply("คำสั่งนี้สำหรับห้อง NSFW..\nสามารถใช้ได้ใน <#573117765528059914>") 
                             

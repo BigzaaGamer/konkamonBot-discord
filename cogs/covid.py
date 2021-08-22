@@ -39,20 +39,20 @@ class Covid_Commands(commands.Cog):
         total_death= "{:,}".format(cv[totalDeath])
         covidEmbed = discord.Embed(title="สถานการณ์ COVID-19 ประเทศไทย",color=0xB61919,description="อัพเดทเมื่อ: " + updateD)
         covidEmbed.set_thumbnail(url="https://disease.sh/assets/img/flags/th.png")
-        covidEmbed.add_field(name="จำนวนผู้ติดเชื้อวันนี้ 😷", value=today_case,inline=True)
-        covidEmbed.add_field(name="ผู้ติดเชื้อทั้งหมด 😷", value=total_case,inline=True)
-        covidEmbed.add_field(name="ผู้เสียชีวิตวันนี้ 💀",value=today_death,inline=True)
-        covidEmbed.add_field(name="ผู้เสียชีวิตทั้งหมด 💀", value=total_death,inline=True)
-        covidEmbed.add_field(name="หายแล้ว (วันนี้)✅", value="{:,}".format(cv[todayRecov]) ,inline=True)
-        covidEmbed.add_field(name="หายแล้ว (ทั้งหมด)✅", value="{:,}".format(cv[Recov]) ,inline=True)
-        covidEmbed.add_field(name="กำลังรักษา 🏨",value="{:,}".format(cv[active]) ,inline=True)
+        covidEmbed.add_field(name="จำนวนผู้ติดเชื้อวันนี้", value=today_case,inline=True)
+        covidEmbed.add_field(name="ผู้ติดเชื้อทั้งหมด", value=total_case,inline=True)
+        covidEmbed.add_field(name="ผู้เสียชีวิตวันนี้",value=today_death,inline=True)
+        covidEmbed.add_field(name="ผู้เสียชีวิตทั้งหมด", value=total_death,inline=True)
+        covidEmbed.add_field(name="หายแล้ว (วันนี้)", value="{:,}".format(cv[todayRecov]) ,inline=True)
+        covidEmbed.add_field(name="หายแล้ว (ทั้งหมด)", value="{:,}".format(cv[Recov]) ,inline=True)
+        covidEmbed.add_field(name="กำลังรักษา",value="{:,}".format(cv[active]) ,inline=True)
         
-        await ctx.reply(embed = covidEmbed)
+        await ctx.send(embed = covidEmbed)
 
     @commands.command()
     async def covidth(self, ctx):        
         await self.covidthapi(ctx, "https://disease.sh/v3/covid-19/countries/thailand", "updated", "todayCases","cases", "todayDeaths", "deaths", "todayRecovered", "recovered", "active")
-
+    
 
 def setup(bot):
     bot.add_cog(Covid_Commands(bot))

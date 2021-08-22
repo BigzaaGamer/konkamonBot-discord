@@ -28,8 +28,8 @@ for file in os.listdir("cogs"):
 
 try:
     #for Local
-    #bot.run(config["token"])
-    
+    #bot.run(token)
+
     bot.run(TOKEN)    
 
 except Exception as e:

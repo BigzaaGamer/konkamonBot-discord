@@ -49,7 +49,7 @@ class Fun_Commands(commands.Cog):
         memeTitle = rr[title]
         memeImage = rr[endpoint]
         memeSource = rr[source]
-        memeEmbed=discord.Embed(title=memeTitle,color=discord.Color.blue(),url=memeSource)
+        memeEmbed=discord.Embed(title=memeTitle, color=0xFF4C29, url=memeSource)
         memeEmbed.set_image(url=memeImage)
         await ctx.send(embed = memeEmbed)
 
@@ -126,15 +126,14 @@ class Fun_Commands(commands.Cog):
     @commands.command()
     async def meme(self, ctx):
         """ สุ่มมีมฮาๆ """
-        #await self.randomimageapi(ctx, "https://meme-api.herokuapp.com/gimme/memes", "url")
-        await self.randommemeapi(ctx, "https://meme-api.herokuapp.com/gimme", "url","title","postLink")
+        await self.randommemeapi(ctx, "https://meme-api.herokuapp.com/gimme/memes", "url","title","postLink")
 
     @commands.command()
     async def bruh(self, ctx, channel: discord.TextChannel = None, *, content: str):
         if channel is not None:
             await channel.send(content)
 
-        else:
+        elif channel is None:
             await ctx.send(content)
 
     @commands.command()
@@ -144,28 +143,20 @@ class Fun_Commands(commands.Cog):
         await ctx.reply("ฮั่นแน่!!! " + hunnae_answer)
         #time.sleep(5)
         #await ctx.channel.purge(limit=2)
-        
+    
     @commands.command(aliases=["คำคม"])
     async def kumkhom(self, ctx):
-        kumkhom1 = random.choice(lists.kumkhom)
-        kumkhom2 = random.choice(lists.kumkhom)
-        kumkhom3 = random.choice(lists.kumkhom)
-        kumkhom4 = random.choice(lists.kumkhom)
-        kumkhom5 = random.choice(lists.kumkhom)
-        kumkhom6 = random.choice(lists.kumkhom)
-        kumkhom7 = random.choice(lists.kumkhom)
-        kumkhom8 = random.choice(lists.kumkhom)
-        kumkhom9 = random.choice(lists.kumkhom)
-        kumkhom10 = random.choice(lists.kumkhom)
+        kumkhomEmbed = discord.Embed(color=0x7FC8A9)
+        kumkhom_dict = {}
         
-        kumkhomEmbed = discord.Embed(title="รวมคำคม หลากอารมณ์", color=0x7FC8A9)
-        kumkhomEmbed.add_field(name=kumkhom1, value=kumkhom2,inline=False)
-        kumkhomEmbed.add_field(name=kumkhom3, value=kumkhom4,inline=False)
-        kumkhomEmbed.add_field(name=kumkhom5, value=kumkhom6,inline=False)
-        kumkhomEmbed.add_field(name=kumkhom7, value=kumkhom8,inline=False)
-        kumkhomEmbed.add_field(name=kumkhom9, value=kumkhom10,inline=False)
+        for number in range(1,6):
+            number2 = number
+            number2 += number
+            kumkhom_dict["kumkhom%s" %number] = random.choice(lists.kumkhom)
+            kumkhom_dict["kumkhom%s" %number2] = random.choice(lists.kumkhom)
+            kumkhomEmbed.add_field(name=kumkhom_dict["kumkhom%s" %number], value=kumkhom_dict["kumkhom%s" %number2 ],inline=False)
 
-        await ctx.send(embed = kumkhomEmbed)
+        await ctx.send(content="รวมคำคมเด็ดๆ หลากหลายอารมณ์!!", embed = kumkhomEmbed)
 
     @commands.command()
     async def password(self, ctx, nbytes: int = 18):
@@ -257,7 +248,7 @@ class Fun_Commands(commands.Cog):
         c = random.choice(emojis)
 
         #slotmachine = f"**[ {a} {b} {c} ]\n{ctx.author.name}**,"
-        slotmachine = discord.Embed(title="Slot Machine!!", color=0xFFE459)
+        slotmachine = discord.Embed(color=0xFFE459)
         slotmachine.add_field(name="1", value=a)
         slotmachine.add_field(name="2", value=b)
         slotmachine.add_field(name="3", value=c)

@@ -1,5 +1,5 @@
 {
-  "join_message": "I has joined to do stuff 🌟",
+  "join_message": "บอทพรี่บิ๊กมาแล้ว!!",
   "owners": [
     365454544555212801
   ],
@@ -10,5 +10,5 @@
   "activity_type": "playing",
   "status_type": "online",
   "alexflipnote_api": "nice_token_you_got_here",
-  "version": "0.1.0"
+  "version": "0.2.0"
 }
