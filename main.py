@@ -26,7 +26,8 @@ for file in os.listdir("cogs"):
 
 try:
     #bot.run(config["token"])
-    bot.run(TOKEN)
-    
+    if __name__ == "__main__":
+        bot.run(TOKEN)
+        
 except Exception as e:
     print(f"Error when logging in: {e}")
