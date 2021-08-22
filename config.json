@@ -1,0 +1,14 @@
+{
+  "join_message": "I has joined to do stuff 🌟",
+  "owners": [
+    365454544555212801
+  ],
+  "prefix": [
+    "&"
+  ],
+  "activity": "&help - กำลังเขียน",
+  "activity_type": "playing",
+  "status_type": "online",
+  "alexflipnote_api": "nice_token_you_got_here",
+  "version": "0.1.0"
+}
