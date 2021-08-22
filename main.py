@@ -5,6 +5,8 @@ from utils import default
 from utils.data import Bot, HelpFormat
 from discord_slash import SlashCommand, SlashContext
 
+TOKEN = os.getenv("DISCORD_TOKEN")
+
 #help_command=HelpFormat(),
 config = default.config()
 print("Logging in...")
@@ -23,6 +25,8 @@ for file in os.listdir("cogs"):
         bot.load_extension(f"cogs.{name}")
 
 try:
-    bot.run(config["token"])
+    #bot.run(config["token"])
+    bot.run(TOKEN)
+    
 except Exception as e:
     print(f"Error when logging in: {e}")
