@@ -129,14 +129,6 @@ class Fun_Commands(commands.Cog):
         await self.randommemeapi(ctx, "https://meme-api.herokuapp.com/gimme/memes", "url","title","postLink")
 
     @commands.command()
-    async def bruh(self, ctx, channel: discord.TextChannel = None, *, content: str):
-        if channel is not None:
-            await channel.send(content)
-
-        elif channel is None:
-            await ctx.send(content)
-
-    @commands.command()
     async def ฮั่นแน่(self, ctx):
         """ สุ่มข้อความ ฮั่นแน่่!! """
         hunnae_answer = random.choice(lists.hunnaeresponse)
@@ -144,7 +136,7 @@ class Fun_Commands(commands.Cog):
         #time.sleep(5)
         #await ctx.channel.purge(limit=2)
     
-    @commands.command(aliases=["คำคม"])
+    @commands.command(name="คำคม")
     async def kumkhom(self, ctx):
         kumkhomEmbed = discord.Embed(color=0x7FC8A9)
         kumkhom_dict = {}
@@ -187,8 +179,8 @@ class Fun_Commands(commands.Cog):
         if user.bot:
             return await ctx.send(f"I would love to give beer to the bot **{ctx.author.name}**, but I don't think it will respond to you :/")
 
-        beer_offer = f"**{user.name}**, you got a 🍺 offer from **{ctx.author.name}**"
-        beer_offer = beer_offer + f"\n\n**Reason:** {reason}" if reason else beer_offer
+        beer_offer = f"เฮ้ **{user.name}**, **{ctx.author.name}** ได้ชวนคุณมาดื่มเบียร์ด้วยกัน!!!"
+        beer_offer = beer_offer + f"\n\n**เหตุผล:** {reason}" if reason else beer_offer
         msg = await ctx.send(beer_offer)
 
         def reaction_check(m):
@@ -199,7 +191,7 @@ class Fun_Commands(commands.Cog):
         try:
             await msg.add_reaction("🍻")
             await self.bot.wait_for("raw_reaction_add", timeout=30.0, check=reaction_check)
-            await msg.edit(content=f"**{user.name}** and **{ctx.author.name}** are enjoying a lovely beer together 🍻")
+            await msg.edit(content=f"**{user.name}** กับ **{ctx.author.name}** ได่ดื่มเบีียร์กันอย่างสนุกสนาน!! 🍻")
         except asyncio.TimeoutError:
             await msg.delete()
             await ctx.send(f"well, doesn't seem like **{user.name}** wanted a beer with you **{ctx.author.name}** ;-;")
@@ -265,6 +257,7 @@ class Fun_Commands(commands.Cog):
             await ctx.send(embed = slotmachine)
             #await ctx.send(f"{slotmachine} No match, you lost 😢")
             await ctx.send("No match, you lost 😢")
+
 
 def setup(bot):
     bot.add_cog(Fun_Commands(bot))
